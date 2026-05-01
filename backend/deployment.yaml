@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shipquick-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: shipquick-backend
+  template:
+    metadata:
+      labels:
+        app: shipquick-backend
+    spec:
+      containers:
+      - name: backend
+        image: 268140506151.dkr.ecr.ap-south-1.amazonaws.com/shipquick-backend:latest
+        ports:
+        - containerPort: 3000
